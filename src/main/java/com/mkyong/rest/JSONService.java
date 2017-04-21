@@ -10,10 +10,13 @@ import javax.ws.rs.core.Response;
 
 import com.mkyong.Track;
 import com.mkyong.rest.client.ComplexTrackObject;
+import com.mkyong.rest.client.TrackClient;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Path("/json/metallica")
@@ -67,6 +70,23 @@ public class JSONService {
 		ObjectMapper objectMapper = new ObjectMapper();
 		String output = objectMapper.writeValueAsString(trackObject);;
 		return Response.status(200).entity(output).build();
+	}
+
+	@GET
+	@Path("/post/entity/jaxb")
+//	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ComplexTrackObject createTrackInJSONJaxb() throws IOException {
+		TrackClient track1 = new TrackClient();
+		track1.setSinger("dima");
+		track1.setTitle("best");
+		TrackClient track2 = new TrackClient();
+		track2.setSinger("andrey");
+		track2.setTitle("best2");
+		List<TrackClient> trackClients = new ArrayList<TrackClient>();
+		trackClients.add(track1);
+		trackClients.add(track2);
+		return new ComplexTrackObject("ddd", 30, Arrays.asList("dfsd", "dfdsfffff"), trackClients);
 	}
 
 	

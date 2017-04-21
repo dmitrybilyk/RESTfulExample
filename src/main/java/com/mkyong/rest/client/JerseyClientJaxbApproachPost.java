@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class JerseyClientPojoApproachPost {
+public class JerseyClientJaxbApproachPost {
 
   public static void main(String[] args) {
 
@@ -31,8 +31,8 @@ public class JerseyClientPojoApproachPost {
 		trackClients.add(track2);
 
 		ComplexTrackObject complexTrackObject = new ComplexTrackObject();
-//		complexTrackObject.setTrackClients(trackClients);
-//		complexTrackObject.setStringList(Arrays.asList("Dima", "Andrey"));
+		complexTrackObject.setTrackClients(trackClients);
+		complexTrackObject.setStringList(Arrays.asList("Dima", "Andrey"));
 		complexTrackObject.setAge(35);
 		complexTrackObject.setName("ME");
 //		ObjectMapper objectMapper = new ObjectMapper();
@@ -45,9 +45,8 @@ public class JerseyClientPojoApproachPost {
 		Client client = Client.create(clientConfig);
 
 		WebResource webResource = client
-						.resource("http://localhost:8080/rest/json/metallica/post/entity/pojo");
-		ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class,
-						complexTrackObject);
+						.resource("http://localhost:8080/rest/json/metallica/post/entity/jaxb");
+		ClientResponse response = webResource.accept("application/json").type("application/json").get(ClientResponse.class);
 
 //		ClientResponse response = webResource.type("application/json")
 //		   .post(ClientResponse.class, inputJson);

@@ -1,10 +1,13 @@
 package com.mkyong.rest.client;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 /**
  * Created by dmitry on 21.04.17.
  */
+@XmlRootElement(name = "ComplexTrackObject")
 public class ComplexTrackObject {
   private List<TrackClient> trackClients;
   private List<String> stringList;
@@ -14,7 +17,7 @@ public class ComplexTrackObject {
   public ComplexTrackObject() {
   }
 
-  public ComplexTrackObject(List<TrackClient> trackClients, List<String> stringList, String name, Integer age) {
+  public ComplexTrackObject(String name, Integer age, List<String> stringList, List<TrackClient> trackClients) {
     this.trackClients = trackClients;
     this.stringList = stringList;
     this.name = name;
@@ -29,6 +32,7 @@ public class ComplexTrackObject {
     this.trackClients = trackClients;
   }
 
+  @XmlElement
   public List<String> getStringList() {
     return stringList;
   }
@@ -37,6 +41,7 @@ public class ComplexTrackObject {
     this.stringList = stringList;
   }
 
+  @XmlElement
   public String getName() {
     return name;
   }
@@ -45,6 +50,7 @@ public class ComplexTrackObject {
     this.name = name;
   }
 
+  @XmlElement
   public Integer getAge() {
     return age;
   }
