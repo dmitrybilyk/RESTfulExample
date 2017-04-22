@@ -12,7 +12,7 @@ public class JerseyClientGet {
 		Client client = Client.create();
 
 		WebResource webResource = client
-		   .resource("http://localhost:8080/rest/json/metallica/get");
+		   .resource("http://localhost:8080/rest/json/get");
 
 		ClientResponse response = webResource.accept("application/json")
                    .get(ClientResponse.class);

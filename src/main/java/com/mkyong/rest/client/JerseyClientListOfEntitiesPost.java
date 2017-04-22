@@ -40,7 +40,7 @@ public class JerseyClientListOfEntitiesPost {
 		com.sun.jersey.api.client.Client client = com.sun.jersey.api.client.Client.create(clientConfig);
 
 		WebResource webResource = client
-						.resource("http://localhost:8080/rest/json/metallica/post/entity/list");
+						.resource("http://localhost:8080/rest/json/post/entity/list");
 		ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, trackClients);
 
 //		ClientResponse response = webResource.type("application/json")

@@ -13,7 +13,7 @@ public class JerseyClientPost {
 		Client client = Client.create();
 
 		WebResource webResource = client
-						.resource("http://localhost:8080/rest/json/metallica/post");
+						.resource("http://localhost:8080/rest/json/post");
 
 		String input = "{\"singer\":\"Metallica\",\"title\":\"Fade To Black\"}";
 

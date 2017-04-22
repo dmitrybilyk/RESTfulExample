@@ -8,6 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.mkyong.ClientConversationSearch;
 import com.mkyong.Track;
 import com.mkyong.rest.client.ComplexTrackObject;
 import com.mkyong.rest.client.TrackClient;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Path("/json/metallica")
+@Path("/json")
 public class JSONService {
 
 	@GET
@@ -89,5 +90,21 @@ public class JSONService {
 		return new ComplexTrackObject("ddd", 30, Arrays.asList("dfsd", "dfdsfffff"), trackClients);
 	}
 
-	
+
+//	@POST
+//	@Path("/post/clientsearch")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public List<String> conversationsClientSearch(ClientConversationSearch clientConversationSearch) throws IOException {
+//		return Arrays.asList("some link", "some link2", "some link3");
+//	}
+@POST
+	@Path("/post/clientsearch")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String conversationsClientSearch(ClientConversationSearch clientConversationSearch) throws IOException {
+		ObjectMapper objectMapper = new ObjectMapper();
+		return objectMapper.writeValueAsString(clientConversationSearch);
+	}
+
 }

@@ -45,7 +45,7 @@ public class JerseyClientPojoApproachPost {
 		Client client = Client.create(clientConfig);
 
 		WebResource webResource = client
-						.resource("http://localhost:8080/rest/json/metallica/post/entity/pojo");
+						.resource("http://localhost:8080/rest/json/post/entity/pojo");
 		ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class,
 						complexTrackObject);
 
