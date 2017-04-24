@@ -24,7 +24,7 @@ public class ClientConversationSearch {
         private List<Integer> groupIds = new ArrayList<Integer>(); // (Array[integer], optional): groups ids of the agents in the moment of recording the call ,
         private String fulltext; // (string, optional): full text search on subjects and text bodies ,
         private String customSearch; // (string, optional),
-        private Period period; // (Period, optional): Period where conversations has to occur. ,
+        private Period period = Period.ZERO; // (Period, optional): Period where conversations has to occur. ,
         private String timeZone; // (string, optional): Canonical Timezone ID which is required when time related search used. ,
         private List<String> daysOfWeek = new ArrayList<String>(); // (Array[string], optional): Days of the week to include in search results ,
         private LocalTime timeOfDayFrom; // (LocalTime, optional): Minimum time of day (inclusive) to include in search results. Null means no minimum. ISO 8601 format, e.g.: 12:34:56 ,
