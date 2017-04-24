@@ -101,7 +101,7 @@ public class JSONService {
 @POST
 	@Path("/post/clientsearch")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
 	public String conversationsClientSearch(ClientConversationSearch clientConversationSearch) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.writeValueAsString(clientConversationSearch);
